@@ -13,6 +13,7 @@ The guide assumes, that you are running Windows 10 which is updated to [version 
   - [Adding a user with sudoers persmission (optional)](#adding-a-user-with-sudoers-persmission-optional)
   - [Install Powerline-Go as a prompt (optional)](#install-powerline-go-as-a-prompt-optional)
   - [Create new Windows Terminal profile (optional)](#create-new-windows-terminal-profile-optional)
+  - [Disable MOTD at login (optional)](#disable-motd-at-login-optional)
   - [Basic Git configuration (optional)](#basic-git-configuration-optional)
 
 ## Download the latest Ubuntu version
@@ -130,7 +131,7 @@ Remark: Powerline-Go requires [fonts which contain some special characters](http
 
 ## Create new Windows Terminal profile (optional)
 
-If you have [dynamic profiles](https://docs.microsoft.com/en-us/windows/terminal/dynamic-profiles) disablen in the case of [Windows Terminal](https://github.com/microsoft/terminal) by having `"disabledProfileSources": ["Windows.Terminal.Wsl"]` configuration in the `settings.json` file, you will have to create a new profile for the new distribution.
+If you have [dynamic profiles](https://docs.microsoft.com/en-us/windows/terminal/dynamic-profiles) disabled in the case of [Windows Terminal](https://github.com/microsoft/terminal) by having `"disabledProfileSources": ["Windows.Terminal.Wsl"]` configuration in the `settings.json` file, you will have to create a new profile for the new distribution.
 
 First, you have to generate a new GUID which will be the new profile's identifier. I prefer to use [PowerShell](https://aka.ms/powershell) via the following command:
 
@@ -156,6 +157,14 @@ Now you can put the following configuration to the `"profiles"` block in the `se
     "startingDirectory": "//wsl$/ubuntu-20.04-dotnetcore/home/normaluser",
     "fontFace": "Cascadia Code PL"
 }
+```
+
+## Disable MOTD at login (optional)
+
+If you would like to avoid the message of the day (known as MOTD) than you have to issue the following command in the case of `normaluser`:
+
+```bash
+/home/normaluser/.hushlogin
 ```
 
 ## Basic Git configuration (optional)
